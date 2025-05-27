@@ -1,0 +1,45 @@
+
+git log
+
+--kalo ingin kembali ke commit sebelumnya brati komit terakhir di revert
+git revert (hash commit)
+lalu push
+
+--kalo ada 3 commit misal 1, 2, 3 lalu ingin kembali ke 1 maka gunakan 
+git reset --hard (hash ke 1)
+git push origin satrio --force
+
+
+-- kalo misal sudah dimerge di main
+-- dan ingin kembali ke merge sebelumnya
+ + git log --oneline
+ + git revert -m 1 (hash-commit-merge)
+ + push
+
+-- kalau ingin menentukan merge yang mana misal dari 1, 2, 3 pilih 1 maka
++ git log --oneline
++ git reset --hard (hash yang dituju)
++ git push origin main --force
+
+-- kalau ingin menyamakan dengan branch main
++ git checkout satrio
++ git reset --hard origin/main
++ git push origin satrio --force
+
+*catatan
+- kalau kembali pencet q, :wq
+- git checkout HEAD . untuk mengembalikan file yang dihapus ke commit terakhir
+- git merge --no-ff satrio agar tdk lgsg fast forward
+- git diff untuk mengetahui detail perbedaan yang terjadi 
+
+
+#mengabaikan file
+git rm --cached index.html kalau folder maka git rm --cached -r ignore2/
+echo "index.html" >> .gitignore
+git add .gitignore
+git commit -m "Stop tracking index.html"
+git push
+
+#delete branch
+branch lokal -> git branch -d satrio
+branch repo -> git push origin --delete satrio
