@@ -6,7 +6,7 @@ import (
 	"text/template"
 	"warmingup/config"
 )
-test
+
 func DashboardController(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == http.MethodGet {
